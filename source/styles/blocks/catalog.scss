@@ -1,0 +1,34 @@
+.catalog {
+  @media (min-width: 576px) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: $tablet) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 60px;
+  }
+
+  @media (min-width: $desktop) {
+    gap: 63px 80px;
+  }
+}
+
+.catalog__card {
+  &--more {
+    margin-top: auto;
+  }
+
+  @media (min-width: $tablet) {
+    flex-basis: calc((100% - 60px) / 2);
+  }
+
+  @media (min-width: 1200px) {
+    flex-basis: calc((100% - (60px * 2)) / 3);
+  }
+
+  @media (min-width: $desktop) {
+    flex-basis: calc((100% - (80px * 3)) / 4);
+  }
+}

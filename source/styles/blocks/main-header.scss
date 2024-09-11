@@ -1,0 +1,110 @@
+.main-header {
+  position: relative;
+  display: flex;
+  padding-top: 13px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid $color-border-light;
+
+  @media (max-width: ($tablet - 1px)) {
+    &--nojs {
+      display: flex;
+      flex-direction: column;
+      padding: 0;
+      padding-top: 13px;
+      border-bottom: none;
+    }
+
+    &--nojs .main-header__link {
+      padding: 0 44px 15px 20px;
+      border-bottom: 1px solid $color-border-light;
+    }
+
+    &--nojs .main-header__nav {
+      position: static;
+      display: block;
+    }
+
+    &--nojs .main-header__toggle {
+      display: none;
+    }
+  }
+
+  @media (min-width: $tablet) {
+    align-items: start;
+    padding-top: 25px;
+    border-bottom: none;
+  }
+
+  @media (min-width: $desktop) {
+    padding-top: 55px;
+  }
+}
+
+.page__body--index .main-header {
+  @media (min-width: $desktop) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+  }
+}
+
+.main-header__nav {
+  @media (max-width: ($tablet - 1px)) {
+    position: absolute;
+    top: 67px;
+    left: 0;
+    right: 0;
+    display: none;
+    overflow: auto;
+
+    &--show {
+      display: block;
+      max-height: calc(100vh - 67px);
+    }
+  }
+
+  @media (min-width: $tablet) {
+    max-width: 70%;
+    margin-left: auto;
+    margin-right: 5px;
+  }
+
+  @media (min-width: $desktop) {
+    max-width: 45%;
+    margin-right: 0;
+  }
+}
+
+.main-header__toggle {
+  @include background(26px, center right);
+  margin-left: 8px;
+  padding: 14px;
+  background-color: transparent;
+  background-image: url("../../icons/stack.svg#menu");
+  border: none;
+  cursor: pointer;
+
+  &[disabled] {
+    opacity: 0.2;
+    cursor: default;
+  }
+
+  &:not([disabled]):is(:hover, :focus-visible, :focus) {
+    opacity: 0.6;
+  }
+
+  &:not([disabled]):active {
+    opacity: 0.3;
+  }
+
+  @media (min-width: $tablet) {
+    display: none;
+  }
+}
+
+.main-nav--show + .main-header__toggle {
+  background-image: url("../../icons/stack.svg#cross");
+  background-size: 18px;
+}

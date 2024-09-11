@@ -1,0 +1,67 @@
+.more {
+  @media (max-width: ($tablet - 1px)) {
+    border-bottom: 1px solid $color-border-light-2;
+  }
+}
+
+.more__wrapper {
+  max-width: 350px;
+  margin: 0 auto;
+  padding: 21px 20px 23px;
+  text-align: center;
+
+  &::before {
+    @include pseudo-element(30px, 30px);
+    @include background;
+    margin: 0 auto 25px;
+    background-image: url("../../icons/stack.svg#plus");
+
+    @media (min-width: $tablet) {
+      width: 60px;
+      height: 60px;
+      margin-bottom: 48px;
+    }
+
+    @media (min-width: $desktop) {
+      margin-bottom: 40px;
+    }
+  }
+
+  @media (min-width: $tablet) {
+    padding: 52px 37px 40px;
+    box-shadow: 0 0 0 1px $color-special-light;
+  }
+}
+
+.more__text {
+  @include font($size-basic-2, 1.25, $color-special-dark-2, $font-second);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+
+  @media (min-width: $tablet) {
+    @include font-min($size-medium, 1.2);
+    margin-bottom: 23px;
+    padding: 0 40px;
+  }
+
+  @media (min-width: $desktop) {
+    margin-bottom: 26px;
+    padding: 0;
+  }
+}
+
+.more__description {
+  @include font($size-small, 1.33);
+  margin-bottom: 21px;
+
+  @media (min-width: $tablet) {
+    @include font-min($size-basic-2, 1.13);
+    margin-bottom: 82px;
+    padding: 0 40px;
+  }
+
+  @media (min-width: $desktop) {
+    margin-bottom: 90px;
+    padding: 0;
+  }
+}

@@ -1,0 +1,136 @@
+.card {
+  @media (max-width: ($tablet - 1px)) {
+    border-bottom: 1px solid $color-border-light-2;
+  }
+}
+
+.card__wrapper {
+  max-width: 350px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 20px 20px 26px;
+
+  @media (max-width: ($tablet - 1px)) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (min-width: $tablet) {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 37px 41px;
+    text-align: center;
+    background-image: linear-gradient(to bottom, transparent 81px, $color-special-light 81px);
+  }
+}
+
+.card__link:has(.card__image) {
+  grid-row: 1 / 3;
+  overflow: hidden;
+
+  &:is(:hover, :focus-visible, :focus) .card__image {
+    transform: scale(1.03);
+  }
+
+  &:active .card__image {
+    opacity: 0.6;
+  }
+
+  @media (min-width: $tablet) {
+    display: block;
+    margin-bottom: 16px;
+  }
+
+  @media (min-width: $desktop) {
+    margin-bottom: 5px;
+  }
+}
+
+.card__link:not(:has(.card__image)) {
+  &:is(:hover, :focus-visible, :focus) {
+    opacity: 0.6;
+  }
+
+  &:active {
+    opacity: 0.3;
+  }
+}
+
+.card__image {
+  width: 140px;
+  height: 107px;
+  transition: transform 0.3s ease, opacity 0.2s ease-in-out;
+
+  @media (min-width: $tablet) {
+    width: 200px;
+    height: 210px;
+  }
+
+  @media (min-width: $desktop) {
+    width: 169px;
+    height: 210px;
+  }
+}
+
+
+.card__title {
+  @include font($size-basic-2, 1.25, $color-special-dark, $font-second);
+  margin-bottom: 14px;
+  padding-right: 40%;
+  text-transform: uppercase;
+
+  @media (min-width: $tablet) {
+    @include font-min($size-medium, 1.2);
+    margin-bottom: 15px;
+    padding-left: 22%;
+    padding-right: 22%;
+  }
+
+  @media (min-width: $desktop) {
+    margin-bottom: 20px;
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+}
+
+.card__info {
+  margin: 0;
+  margin-bottom: 20px;
+
+  @media (min-width: $tablet) {
+    margin-bottom: 32px;
+  }
+
+  @media (min-width: $desktop) {
+    margin-bottom: 38px;
+  }
+}
+
+.card__info-item {
+  @include font($size-small, 1.33);
+  display: flex;
+  gap: 10px;
+
+  @media (min-width: $tablet) {
+    @include font-min($size-basic-2, 1.25);
+    padding: 5px 0;
+    border-bottom: 1px solid $color-border-light-2;
+  }
+}
+
+.card__info-title {
+  max-width: 50%;
+}
+
+.card__info-description {
+  max-width: 50%;
+  margin-left: auto;
+}
+
+.card__button {
+  margin-top: auto;
+
+  @media (max-width: ($tablet - 1px)) {
+    grid-column: 1 / -1;
+  }
+}

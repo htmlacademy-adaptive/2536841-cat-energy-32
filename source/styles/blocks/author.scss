@@ -1,0 +1,39 @@
+.author {
+  @include font($size-basic-2, 1.25, $color-basic);
+  display: flex;
+  align-items: center;
+
+  &[disabled] {
+    opacity: 0.3;
+    cursor: default;
+  }
+
+  &:not([disabled]):active {
+    opacity: 0.3;
+  }
+
+  &::after {
+    @include pseudo-element(27px, 34px);
+    @include mask;
+  }
+
+  &--htmlacademy::after {
+    mask-image: url("../../icons/stack.svg#logo-htmlacademy");
+  }
+
+  &:not([disabled]):is(:hover, :active, :focus-visible, :focus)::after {
+    background-color: $color-accent;
+  }
+
+  @media (min-width: $tablet) {
+    @include font-min($size-basic-2, 1.25);
+  }
+}
+
+.author__text {
+  margin-right: 23px;
+
+  @media (max-width: ($tablet - 1px)) {
+    margin-right: auto;
+  }
+}

@@ -1,0 +1,128 @@
+.example {
+  padding-top: 27px;
+  padding-bottom: 40px;
+  background-color: $color-special-light-2;
+
+  @media (min-width: $tablet) {
+    padding-top: 44px;
+    padding-bottom: 98px;
+    background-color: transparent;
+    background-image: linear-gradient(to bottom, transparent 57%, $color-special-light-2 57%);
+  }
+
+  @media (min-width: $desktop) {
+    padding-top: 58px;
+    padding-bottom: 68px;
+    background-image: linear-gradient(to bottom, transparent 30%, $color-special-light 30%);
+  }
+}
+
+.example__wrapper {
+  @media (min-width: $tablet) {
+    display: grid;
+    grid-template-columns: 1fr 190px;
+    gap: 0 40px;
+  }
+
+  @media (min-width: $desktop) {
+    grid-template-columns: 1fr 1fr;
+    gap: 0 98px;
+  }
+}
+
+.example__title {
+  @include font($size-big-3, 1.1, $color-main, $font-second);
+  margin-bottom: 40px;
+
+  @media (min-width: $tablet) {
+    @include font-min($size-huge-2);
+    margin-bottom: 60px;
+  }
+
+  @media (min-width: $tablet) and (max-width: ($desktop - 1px)) {
+    grid-column: 1 / -1;
+  }
+
+  @media (min-width: $desktop) {
+    margin-bottom: 146px;
+  }
+}
+
+.example__text {
+  margin: 0;
+  margin-bottom: 18px;
+
+  @media (min-width: $tablet) {
+    margin-bottom: 55px;
+  }
+
+  @media (min-width: $tablet) and (max-width: ($desktop - 1px)) {
+    grid-column: 1 / -1;
+  }
+
+  @media (min-width: $desktop) {
+    margin-bottom: 70px;
+    padding-right: 23%;
+  }
+}
+
+.example__list {
+  justify-content: center;
+  margin: 0;
+  margin-bottom: 20px;
+
+  @media (min-width: $tablet) {
+    justify-content: start;
+    margin-bottom: 0;
+  }
+
+  @media (min-width: $desktop) {
+    margin-bottom: 50px;
+  }
+}
+
+.example__price {
+  @include font($size-basic, 1.43, $color-main, $font-second);
+  margin-bottom: 20px;
+  text-align: center;
+  text-transform: uppercase;
+
+  @media (min-width: $tablet) {
+    @include font-min($size-medium, 1.5);
+    margin-bottom: 0;
+    padding-top: 6px;
+    text-align: end;
+  }
+
+  @media (min-width: $desktop) {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding-top: 0;
+    text-align: start;
+  }
+}
+
+.example__price-text {
+  @media (min-width: $desktop) {
+    max-width: 350px;
+  }
+}
+
+.example__price-number {
+  @media (min-width: $desktop) {
+    margin: 0 auto 0 61px;
+  }
+}
+
+.example__slider {
+  @media (min-width: $tablet) and (max-width: ($desktop - 1px)) {
+    grid-column: 1 / -1;
+    margin-top: 102px;
+  }
+
+  @media (min-width: $desktop) {
+    grid-column: 2 / -1;
+    grid-row: 1 / 5;
+  }
+}

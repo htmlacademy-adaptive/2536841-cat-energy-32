@@ -1,0 +1,53 @@
+.advantages-card {
+  position: relative;
+  counter-increment: advantage-number;
+
+  &::before {
+    @include pseudo-element(60px, 60px, $color-accent);
+    @include background(30px 32px);
+
+    @media (min-width: $tablet) {
+      width: 80px;
+      height: 80px;
+      margin-bottom: 31px;
+    }
+  }
+
+  &--nutrients::before {
+    background-image: url("../../icons/stack.svg#leaf");
+  }
+
+  &--type::before {
+    background-image: url("../../icons/stack.svg#cup");
+  }
+
+  &--meal::before {
+    background-image: url("../../icons/stack.svg#cutlery");
+  }
+
+  &--time::before {
+    background-image: url("../../icons/stack.svg#clock");
+  }
+
+  @media (max-width: ($tablet - 1px)) {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    br {
+      display: none;
+    }
+  }
+
+  @media (min-width: $tablet) {
+    &::after {
+      @include font(280px, 1, $color-special-light, $font-second);
+      @include pseudo-element(112px, 280px);
+      content: counter(advantage-number);
+      position: absolute;
+      top: -22%;
+      right: 9%;
+      z-index: -1;
+    }
+  }
+}

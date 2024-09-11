@@ -1,0 +1,85 @@
+.slider {
+  position: relative;
+  display: flex;
+  height: 256px;
+
+  @media (min-width: $tablet) {
+    height: 512px;
+  }
+}
+
+.slider__image {
+  position: absolute;
+  inset: 0;
+
+  &--before {
+    mask: linear-gradient(to right, $color-main 50%, transparent 50%) no-repeat center;
+  }
+
+  &--after {
+    mask: linear-gradient(to left, $color-main 50%, transparent 50%) no-repeat center;
+  }
+
+  @media (max-width: ($desktop - 1px)) {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+.slider__button {
+  position: relative;
+  width: 4px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0;
+  background-color: $color-special-medium-3;
+  border: none;
+  cursor: pointer;
+
+  &::before {
+    @include pseudo-element(40px, 40px, $color-light);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border: 2px solid $color-special-medium-3;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &::after {
+    @include pseudo-element(24px, 18px);
+    @include mask("controls");
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &[disabled] {
+    opacity: 0.3;
+    cursor: default;
+  }
+
+  &:not([disabled]):is(:hover, :focus-visible, :focus),
+  &:not([disabled]):is(:hover, :focus-visible, :focus)::after {
+    background-color: $color-accent;
+  }
+
+  &:not([disabled]):active,
+  &:not([disabled]):active::after {
+    background-color: $color-accent-2;
+    opacity: 0.6;
+  }
+
+  &:not([disabled]):is(:hover, :focus-visible, :focus)::before {
+    border-color: $color-accent;
+  }
+
+  &:not([disabled]):active::before {
+    border-color: $color-accent-2;
+  }
+
+  @media (min-width: $tablet) and (max-width: ($desktop - 1px)) {
+    top: -4px;
+  }
+}

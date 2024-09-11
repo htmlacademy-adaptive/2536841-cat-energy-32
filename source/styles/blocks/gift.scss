@@ -1,0 +1,48 @@
+.gift {
+  @include font($size-basic-2, 1.25, $color-light);
+  @include banner-gradient("cat-in-bag-mobile");
+  padding: 59px 0 43px;
+  text-align: center;
+  background-color: $color-accent;
+
+  &::before {
+    @include pseudo-element(78px, 80px);
+    margin: 0 auto 48px;
+    background-image: url("../../icons/stack.svg#gift");
+
+    @media (min-width: $tablet) {
+      width: 80px;
+      height: 82px;
+      margin: 0;
+    }
+
+    @media (min-width: $desktop) {
+      margin: 0 auto 46px;
+    }
+  }
+
+  @media (min-width: $tablet) {
+    @include banner-gradient("cat-in-bag-tablet");
+  }
+
+  @media (min-width: $tablet) and (max-width: ($desktop - 1px)) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 60px 127px 58px 79px;
+    text-align: left;
+    background-position: top 60% center;
+  }
+
+  @media (min-width: $desktop) {
+    @include banner-gradient("cat-in-bag-desktop");
+  }
+}
+
+.gift__text {
+  margin: 0;
+
+  @media (min-width: $tablet) and (max-width: ($desktop - 1px)) {
+    max-width: 50%;
+  }
+}

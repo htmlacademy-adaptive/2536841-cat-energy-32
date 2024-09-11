@@ -1,0 +1,23 @@
+.programs__list {
+  @include list;
+
+  @media (min-width: $desktop) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+  }
+}
+
+.programs__item {
+  &:not(:last-child) {
+    margin-bottom: 20px;
+
+    @media (min-width: $tablet) {
+      margin-bottom: 30px;
+    }
+
+    @media (min-width: $desktop) {
+      margin-bottom: 0;
+    }
+  }
+}
